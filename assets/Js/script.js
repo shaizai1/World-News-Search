@@ -1,3 +1,20 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*
 * Make two fetch calls and get the json data on the console
 * Sort through the data and display relevant portions

@@ -1,13 +1,14 @@
 nav{
     background-color:#6c757d;
     height: 100px;
+    
 }
 .nav-link{
     color: white;
-    font-size: 30px;
+    font-size: 25px;
     font-weight: bold;
     font-family:sans-serif;
-    padding-top: 20px;
+    padding-top: 25px;
 }
 
 .logo{
@@ -17,5 +18,13 @@ nav{
   
 }
 .hero{
-    background:rgb(13, 151, 13)
+    background:rgb(13, 151, 13);
+    color:black;
+}
+
+h1{
+    font-family: sans-serif;
+    font-weight: bolder;
+    color: #6c757d;
+   
 }

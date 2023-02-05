@@ -1,14 +1,17 @@
 nav{
     background-color:#6c757d;
-
-
+    height: 280px;
 }
 .nav-link{
     color: white;
-    font-size: 25px;
+    font-size: 30px;
+    font-weight: bold;
+    font-family:sans-serif;
 }
 
 .logo{
     height: 180px;
-   
+    margin-top: 40px;
+    margin-left: 25px;
+  
 }

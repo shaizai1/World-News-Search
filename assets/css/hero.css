@@ -20,11 +20,17 @@ nav{
 .hero{
     background:rgb(13, 151, 13);
     color:black;
+    font-weight: bold;
 }
 
-h1{
+.h1{
     font-family: sans-serif;
-    font-weight: bolder;
-    color: #6c757d;
+    font-weight: bold;
+    
    
+}
+.description{
+    font-weight: normal;
+    color: #6c757d;
+
 }

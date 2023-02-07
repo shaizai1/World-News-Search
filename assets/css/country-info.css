@@ -1,0 +1,25 @@
+#countryTitleHeader{
+    padding-top: 15px;
+    border-bottom: solid 2px;
+}
+
+#flags{
+    max-height: 200px;
+}
+
+#textCountry{
+    padding-left: 0%;
+}
+
+.infoClasses{
+    font-weight: bold;
+}
+
+#textCountry li{
+    list-style: none;
+}
+
+#modalMapElement{
+    width: 100%;
+    height: 60vh;
+}

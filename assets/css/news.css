@@ -1,0 +1,39 @@
+#news {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.news-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #b1a9c2;
+    padding: 10px;
+    width: 300px;
+    height: 400px;
+    margin: 10px;
+    flex-wrap: wrap;
+}
+
+
+.card-title {
+    background-color: #fff;
+    margin-bottom: 8px;
+}
+
+.card-text {
+    margin-top: 32px;
+    width: 250px;
+    height: 200px;
+    text-align: justify;
+}
+
+.card-link {
+    text-decoration: none;
+    color: #fff;
+    background-color: #333333;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}

@@ -1,0 +1,1 @@
+console.log("https://gnews.io/api/v4/search?q=brazil&apikey=4c7d29a7e0c153fbe2f4224825bcec4a")

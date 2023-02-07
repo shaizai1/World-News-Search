@@ -1,5 +1,5 @@
 var dropdownElement = document.getElementById("country-dropdown");
-let apiKey = "4cdf6c2ecb724b9a939c3f53081d9566"
+let apiKey = "4c7d29a7e0c153fbe2f4224825bcec4a"
 let mainEl = document.querySelector('#main')
 let newsEl = document.querySelector('#news')
 
@@ -71,14 +71,14 @@ dropdownElement.addEventListener('change', function(){
         // Modal Info
         var modalHeading = `Map of ${name}`;
         document.getElementById("modalHeader").textContent = modalHeading;
-        return fetch(`https://newsapi.org/v2/top-headlines/sources?country=${countryCode}&apiKey=${apiKey}`)
+        return fetch(`https://gnews.io/api/v4/search?q=${selectedCountry}&apikey=${apiKey}`)
 
     })
     .then(response => response.json())
    .then(data => {
       console.log("data2",data)
 
-      const arrays = data.sources
+      const arrays = data.articles
       console.log("arrays",arrays)
 
         const newsResults =  arrays.map((item) => {

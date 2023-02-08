@@ -1,13 +1,12 @@
 # World News Search
 
+## Overview
+
+This application is a news aggregator, allowing users to find various news providers for a specified country. These news providers are filters to provide the users with only news from the country, accompanied with some necessary information about that country, such as their flag, capital city, continent, currency, language spoken and a map.
+
 ## Description
 
-This application is a news aggregator, allowing users to find various news providers for a specified country in a single space. These news providers are filters to provide the users with only news from the country that they are searching for. This is also accompanied with some necessary information about said country, such as their flag, the language spoken, currency and capital city.
-
-## 
-
-This application is used to provide the user with a clear representation of the current and future forecast for whichever city they search for. Providing clear visual using icon to portray the current weather and provide basic information such as temperature, humidity and wind speed.
-It also keeps a record of previous search allowing the user to simply click on them to search that city again.
+This application 
 
 Below is a screenshot of the application:
 
@@ -17,11 +16,11 @@ Below is a screenshot of the application:
 ## Credits
 
 ### Collaborators
-This projects was put together through the work of multiple creators:
-
-* 
-
-Use of the Open Weather Map API - https://openweathermap.org/
+This projects was built by the work of multiple creators:
+* [Shaiza Iqbal] (https://github.com/shaizai1)
+* [Zee Mudia] (https://github.com/iosazee)
+* [Mike Davies] (https://github.com/welsh-bloke)
+* [Alex Ainslie] (https://github.com/AlexAins)
 
 ## Deployed Application
-Link to deployed webpage: https://alexains.github.io/Weather-Dashboard/ 
+Link to deployed application: https://shaizai1.github.io/World-News-Search/ 

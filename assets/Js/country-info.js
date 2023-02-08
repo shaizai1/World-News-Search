@@ -26,12 +26,7 @@ const generateData = (e, option) => {
         document.getElementById("titleCountry").textContent = name;
 
         // Variables for main Information
-        let capital = country[0].continents[0]
-        // if (countryName === 'Antarctica') {
-        //   capital = country[0].continents[0]
-        // } else {
-        //   capital = country[0].capital[0];
-        // }
+        let capital = country[0].capital[0]
         console.log(capital)
         let continent = country[0].region;
         let currency = country[0].currencies;
@@ -98,7 +93,7 @@ const generateData = (e, option) => {
           const content = item.content
           const image = item.image
           const card = document.createElement('div')
-          card.innerHTML = `<di class="card news-card">
+          card.innerHTML = `<div class="card news-card">
                               <img src=${image} class="card-img-top news-img" alt=${newsHeading}>
                               <div class="card-body text-center">
                                 <h5 class="card-title card-header">${newsHeading}</h5>

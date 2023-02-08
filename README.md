@@ -27,13 +27,11 @@ The next section provides the various news articles generated from the GNews APi
 
 At the bottom of the application, a search history is recorded. Allowing the user to see a record of their previous searches which are saved on their local storage, and provide fast access to re-search that country and generate news articles about it.
 
-Please find below screenshots of the application:
+#### Application Screenshot:
 
-#### Application:
-![alt text](./assets/images/127.0.0.1_5500_index.html%20(4).png)
 
 #### Application Wireframe:
-![image](./assets/images/wireframe.png)
+<img src="./assets/images/wireframe.png" width="600">
 
 ## Credits
 

@@ -1,7 +1,13 @@
-var dropdownElement = document.getElementById("country-dropdown");
+let dropdownElement = document.getElementById("country-dropdown");
 let apiKey = "9714de926fe24b56dc457135e4e7ac7d"
 let mainElement = document.querySelector('#main')
 let newsElement = document.querySelector('#news')
+
+
+let dropdown = document.querySelector(".form-select");
+
+let search = JSON.parse(localStorage.getItem("search") || "[]");
+
 
 
 const generateData = (e, option) => {
@@ -141,7 +147,24 @@ mainElement.addEventListener('change', (e) => {
 
     if(e.target.id === "country-dropdown") {
       const option = e.target.value
-      generateData(e, option)
+      generateData(e, option);
+
+      let countrySearch = e.target.value;
+      console.log(countrySearch);
+      
+     
+     function searchDuplicate(a, arr) {
+       return arr.includes(a);
+      }
+      
+     if (!searchDuplicate(countrySearch, search)) {
+       search.push(countrySearch)
+       localStorage.setItem("search", JSON.stringify(search));
+    }
+    
+  
     }
 
   })
+
+  

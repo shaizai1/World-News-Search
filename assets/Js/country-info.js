@@ -22,7 +22,7 @@ const generateData = (e, option) => {
     .then(response => response.json())
     .then(function(country){
         let countryCode = country[0].cca2
-        // console.log(country)
+        console.log(countryCode)
         let flagURL = country[0].flags.svg;
         let flagAlt = country[0].flags.alt;
         document.getElementById("flags").setAttribute("src", flagURL);
@@ -91,12 +91,12 @@ const generateData = (e, option) => {
       console.log("news-info",news)
 
       const arrays = news.articles
-      console.log("arrays",arrays)
 
+      // creating a unique array in cases where arrays contains duplicate articles
       const map = new Map(arrays.map(item => [item.title, item]));
       const uniqueArray = [... map.values()]
-      console.log(uniqueArray)
 
+      // Generating bootstrap cards for the news articles
         const newsResults =  uniqueArray.map((item) => {
           const newsHeading = item.title
           const newsUrl = item.url
@@ -115,6 +115,7 @@ const generateData = (e, option) => {
           return card
         })
 
+        // function in case the news api returns an empty array
          const googleSearch = () => {
 
            const altUrl = `https://news.google.com/search?q=${countryName}%20news&hl=en-GB&gl=GB&ceid=GB%3Aen`
@@ -131,7 +132,6 @@ const generateData = (e, option) => {
             return newsElement.append(card)
          }
 
-        console.log("results",newsResults)
 
         if (arrays.length !== 0) {
 
@@ -157,20 +157,17 @@ mainElement.addEventListener('change', (e) => {
 
       let countrySearch = e.target.value;
       console.log(countrySearch);
-      
-     
+
      function searchDuplicate(a, arr) {
        return arr.includes(a);
       }
-      
+
      if (!searchDuplicate(countrySearch, search)) {
        search.push(countrySearch)
        localStorage.setItem("search", JSON.stringify(search));
     }
-    
-  
+
     }
 
   })
 
-  

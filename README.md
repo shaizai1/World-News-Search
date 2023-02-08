@@ -30,8 +30,6 @@ At the bottom of the application, a search history is recorded. Allowing the use
 #### Application Screenshot:
 
 
-#### Application Wireframe:
-<img src="./assets/images/wireframe.png" width="600">
 
 ## Credits
 
@@ -44,6 +42,15 @@ This projects was built by:
 * [Zee Mudia](https://github.com/iosazee)
 * [Mike Davies](https://github.com/welsh-bloke)
 * [Alex Ainslie](https://github.com/AlexAins)
+
+We worked together to produce this application by splitting the work between all of us and working together to merge our work into a single working application. To keep a clear idea of our work we used created a wireframe for our application and a Kanban Board to track work on GitHub.
+
+#### Application Wireframe:
+<img src="./assets/images/wireframe.png" width="600">
+
+#### Kanban Board:
+<img src="./assets/images/kanban.png" width="600">
+
 
 ## Deployed Application
 Link to deployed application: https://shaizai1.github.io/World-News-Search/ 

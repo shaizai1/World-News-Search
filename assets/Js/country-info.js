@@ -1,21 +1,21 @@
 var dropdownElement = document.getElementById("country-dropdown");
-let apiKey = "4c7d29a7e0c153fbe2f4224825bcec4a"
-let mainEl = document.querySelector('#main')
-let newsEl = document.querySelector('#news')
+let apiKey = "9714de926fe24b56dc457135e4e7ac7d"
+let mainElement = document.querySelector('#main')
+let newsElement = document.querySelector('#news')
 
 
-dropdownElement.addEventListener('change', function(){
-    var countryName = dropdownElement.value
-    var selectedCountry = dropdownElement.value
+const generateData = (e, option) => {
+    e.preventDefault()
+    newsElement.innerHTML = ""
+    let countryName = option
 
-    var queryURL = `https://restcountries.com/v3.1/name/${countryName}`
-
+    let queryURL = `https://restcountries.com/v3.1/name/${countryName}`
 
     fetch(queryURL)
     .then(response => response.json())
     .then(function(country){
         let countryCode = country[0].cca2
-        console.log(country)
+        // console.log(country)
         let flagURL = country[0].flags.svg;
         let flagAlt = country[0].flags.alt;
         document.getElementById("flags").setAttribute("src", flagURL);
@@ -26,23 +26,31 @@ dropdownElement.addEventListener('change', function(){
         document.getElementById("titleCountry").textContent = name;
 
         // Variables for main Information
-        let capital = country[0].capital[0];
+        let capital = country[0].continents[0]
+        // if (countryName === 'Antarctica') {
+        //   capital = country[0].continents[0]
+        // } else {
+        //   capital = country[0].capital[0];
+        // }
+        console.log(capital)
         let continent = country[0].region;
         let currency = country[0].currencies;
         let languages = country[0].languages;
 
         // Breakdown of currency
-        var currencyCode = Object.keys(currency).toString();
-        var currencyCodeLength = currencyCode.length;
+        let currencyCode = Object.keys(currency).toString();
+        let currencyCodeLength = currencyCode.length;
+        let currencyName;
+        let currencySymbol;
 
         if(currencyCodeLength <= 3){
-            var currencyName = country[0].currencies[currencyCode].name;
-            var currencySymbol = country[0].currencies[currencyCode].symbol;
+            currencyName = country[0].currencies[currencyCode].name;
+            currencySymbol = country[0].currencies[currencyCode].symbol;
         }
         else if(currencyCodeLength > 3){
-            var currencyCode = currencyCode.substring(0,3);
-            var currencyName = country[0].currencies[currencyCode].name;
-            var currencySymbol = country[0].currencies[currencyCode].symbol;
+            currencyCode = currencyCode.substring(0,3);
+            currencyName = country[0].currencies[currencyCode].name;
+            currencySymbol = country[0].currencies[currencyCode].symbol;
         }
 
         // Breakdown to access all languages
@@ -50,11 +58,11 @@ dropdownElement.addEventListener('change', function(){
         var languageList = [];
 
         for(i=0;i<trial.length;i++){
-            var languageName = country[0].languages[trial[i]]
+            let languageName = country[0].languages[trial[i]]
             languageList.push(languageName);
         }
 
-        var finalList = languageList.join(', ')
+        let finalList = languageList.join(', ')
 
         // Setting text for Info Section
         document.getElementById("textCountry").innerHTML = `
@@ -65,48 +73,55 @@ dropdownElement.addEventListener('change', function(){
 
 
         // Getting map link from API
-        var mapLink = `https://maps.google.com/maps?q=${countryName}&output=embed`;
+        let mapLink = `https://maps.google.com/maps?q=${countryName}&output=embed`;
         document.getElementById("modalMapElement").setAttribute("src", mapLink);
 
         // Modal Info
-        var modalHeading = `Map of ${name}`;
+        let modalHeading = `Map of ${name}`;
         document.getElementById("modalHeader").textContent = modalHeading;
-        return fetch(`https://gnews.io/api/v4/search?q=${selectedCountry}&apikey=${apiKey}`)
-
     })
-    .then(response => response.json())
-   .then(data => {
-      console.log("data2",data)
 
-      const arrays = data.articles
+    let newsApi = `https://gnews.io/api/v4/search?q=${countryName}&apikey=${apiKey}`
+
+    fetch(newsApi)
+     .then(response => response.json())
+     .then(function(news){
+      console.log("news-info",news)
+
+      const arrays = news.articles
       console.log("arrays",arrays)
 
         const newsResults =  arrays.map((item) => {
-          const newsHeading = item.name
+          const newsHeading = item.title
           const newsUrl = item.url
-          const description = item.description
+          // const description = item.description
+          const content = item.content
+          const image = item.image
           const card = document.createElement('div')
-          card.innerHTML =  `<div class="news-card">
-                                <h5 class="card-title">${newsHeading}</h5>
-                                <a href=${newsUrl} class="card-link" target="_blank">${newsUrl} news</a>
-                                <p class="card-text">${description}</p>
-                              </div>`
+          card.innerHTML = `<di class="card news-card">
+                              <img src=${image} class="card-img-top news-img" alt=${newsHeading}>
+                              <div class="card-body text-center">
+                                <h5 class="card-title card-header">${newsHeading}</h5>
+                                <p class="card-text">${content}</p>
+                                <a href=${newsUrl} class="btn btn-secondary" target="_blank">Go deeper into the story</a>
+                              </div>
+                            </div>`
 
           return card
         })
 
          const googleSearch = () => {
 
-           const altUrl = `https://news.google.com/search?q=${selectedCountry}%20news&hl=en-GB&gl=GB&ceid=GB%3Aen`
+           const altUrl = `https://news.google.com/search?q=${countryName}%20news&hl=en-GB&gl=GB&ceid=GB%3Aen`
             console.log(altUrl)
             const card = document.createElement('div')
             card.innerHTML =  `<div class="news-card">
-                                <h5 class="card-title"> Google News ${selectedCountry} </h5>
-                                <a href=${altUrl} class="card-link" target="_blank">Click here for ${selectedCountry} news</a>
-                                <p class="card-text">Google News from ${selectedCountry}</p>
+                                <h5 class="card-title"> Google News ${countryName} </h5>
+                                <a href=${altUrl} class="card-link" target="_blank">Click here for ${countryName} news</a>
+                                <p class="card-text">Google News from ${countryName}</p>
                               </div>`
 
-            return newsEl.append(card)
+            return newsElement.append(card)
          }
 
         console.log("results",newsResults)
@@ -115,7 +130,7 @@ dropdownElement.addEventListener('change', function(){
 
           newsResults.map((card) =>{
 
-           newsEl.append(card)
+           newsElement.append(card)
 
 
           })
@@ -123,15 +138,15 @@ dropdownElement.addEventListener('change', function(){
           googleSearch()
         }
     });
-})
+}
 
 
-// mainEl.addEventListener('change', (e) => {
+mainElement.addEventListener('change', (e) => {
 
 
-//     if(e.target.id === "country-dropdown") {
-//       const option = e.target.value
-//       newsSearch(e, option)
-//     }
+    if(e.target.id === "country-dropdown") {
+      const option = e.target.value
+      generateData(e, option)
+    }
 
-//   })
+  })

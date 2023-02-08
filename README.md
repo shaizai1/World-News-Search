@@ -3,7 +3,15 @@
 ## Overview
 
 This application is a news aggregator, allowing users to find various news about a country of their choice. This application will provide the user with various recent news articles about their selected country, accompanied with some information about that country, such as their flag, capital city, continent, currency, language spoken and a map.
-This application also saves the users previous searches and allows the user quick access to re-search for news about these countries.
+This also saves the users previous searches and allows the user quick access to re-search for news about these countries.
+
+This application was created using:
+* HTML
+* CSS
+* JavaScript
+* Bootstrap v5.2
+* Server-side APIs
+* Client-side storage
 
 ## Description
 
@@ -25,7 +33,7 @@ Please find below screenshots of the application:
 ![alt text](./assets/images/127.0.0.1_5500_index.html%20(4).png)
 
 #### Application Wireframe:
-![alt text](./assets/images/wireframe.png)
+![image](./assets/images/wireframe.png)
 
 ## Credits
 
@@ -33,7 +41,7 @@ Use of RESTcountries API - https://restcountries.com/
 Use of GNews API - https://gnews.io/ 
 
 ## Collaborators
-This projects was built by the work of multiple creators:
+This projects was built by:
 * [Shaiza Iqbal](https://github.com/shaizai1)
 * [Zee Mudia](https://github.com/iosazee)
 * [Mike Davies](https://github.com/welsh-bloke)

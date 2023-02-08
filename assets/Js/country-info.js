@@ -1,7 +1,10 @@
-var dropdownElement = document.getElementById("country-dropdown");
+let dropdownElement = document.getElementById("country-dropdown");
 let apiKey = "9714de926fe24b56dc457135e4e7ac7d"
+
 let mainElement = document.querySelector('#main')
 let newsElement = document.querySelector('#news')
+
+
 let countryContainerEl = document.getElementById("countryContainer")
 
 

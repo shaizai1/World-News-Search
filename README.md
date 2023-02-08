@@ -19,7 +19,7 @@ This application runs with the use of two server-side APis to retrieve various d
 * RESTcountries API
 * GNews API
 
-The application starts with a dropdown menu, allowing users to select their chosen country. This dropdown list includes a vast amount and allows users to type of find their desired choice faster.
+The application starts with a dropdown menu, allowing users to select their chosen country. This dropdown list includes a vast amount and allows users to type of find their desired choice.
 
 Following this, a section about the country selected is generated using the RESTcountries API. By gathering and displaying the data provided to by this API we are able to show the capital city, continent, the currency (including abbreviation and symbol) and a list of the official national spoken languages. Also included is a button to access a google map of the country, using a bootstrap modal to provide a better experience.
 
@@ -27,9 +27,17 @@ The next section provides the various news articles generated from the GNews APi
 
 At the bottom of the application, a search history is recorded. Allowing the user to see a record of their previous searches which are saved on their local storage, and provide fast access to re-search that country and generate news articles about it.
 
-#### Application Screenshot:
+#### Application Screenshot: - Full Screenshot before call
 
+#### Application Screenshot: - Full Screenshot After call
 
+#### Nav and hero section
+
+#### Country info section
+
+#### news section
+
+#### saved searches section
 
 ## Credits
 
@@ -43,7 +51,7 @@ This projects was built by:
 * [Mike Davies](https://github.com/welsh-bloke)
 * [Alex Ainslie](https://github.com/AlexAins)
 
-We worked together to produce this application by splitting the work between all of us and working together to merge our work into a single working application. To keep a clear idea of our work we used created a wireframe for our application and a Kanban Board to track work on GitHub.
+We worked together to produce this application by splitting the work between all of us and working together to merge our work into a single working application. To keep a clear idea of our work we used created a wireframe for our application and a Kanban Board to track of our work on GitHub.
 
 #### Application Wireframe:
 <img src="./assets/images/wireframe.png" width="600">

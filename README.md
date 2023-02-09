@@ -28,9 +28,14 @@ At the bottom of the application, a search history is recorded. Allowing the use
 
 #### Application Screenshot: - Full Screenshot After call
 
-#### Nav and hero section
+#### Nav Bar and Hero Section:
+<img src="./assets/images/nav-hero.png" width="600">
 
-#### Country info section
+#### Country Information Section:
+<img src="./assets/images/country-info.png" width="600">
+
+#### Modal for Map of Country:
+<img src="./assets/images/map.png" width="600">
 
 #### news section
 

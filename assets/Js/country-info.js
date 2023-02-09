@@ -50,7 +50,6 @@ const generateData = (e, option) => {
 
         // Variables for main Information
         let capital = country[0].capital[0]
-        console.log(capital)
         let continent = country[0].region;
         let currency = country[0].currencies;
         let languages = country[0].languages;

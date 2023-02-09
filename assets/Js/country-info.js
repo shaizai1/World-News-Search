@@ -17,23 +17,23 @@ const generateData = (e, option) => {
 
     countryContainerEl.innerHTML = `
     <div class="row">
-    <div class="card mb-3 text-bg-light">
+      <div class="card mb-3 text-bg-light">
         <div class="row g-0">
-            <div class="col-md-4 d-flex align-items-center justify-content-center">
-                <img id="flags" class="img border" src="">
+          <div class="col-md-4 d-flex align-items-center justify-content-center">
+            <img id="flags" class="img border" src="">
+          </div>
+          <div id="countryInfoText" class="col-md-8 overflow-hidden">
+            <div id="countryTitleHeader" class="row text-center">
+              <h3 id="titleCountry"></h3>
             </div>
-            <div id="countryInfoText" class="col-md-8 overflow-hidden">
-                <div id="countryTitleHeader" class="row text-center">
-                  <h3 id="titleCountry"></h3>
-                </div>
-                <div id="countryTextBox" class="card-body text-center">
-                  <ul id="textCountry"></ul>
-                  <button id="mapButton" type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#myModal">Click to view Map</button>
-                </div>
+            <div id="countryTextBox" class="card-body text-center">
+              <ul id="textCountry"></ul>
+              <button id="mapButton" type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#myModal">Click to view Map</button>
             </div>
+          </div>
         </div>
-    </div>
-</div>`
+      </div>
+    </div>`
 
 
     fetch(queryURL)

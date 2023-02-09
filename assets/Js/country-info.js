@@ -1,20 +1,15 @@
 let dropdownElement = document.getElementById("country-dropdown");
 let apiKey = "997e474c448436e6041e48bdcfd868fe"
 
-
 let mainElement = document.querySelector('#main')
 let newsElement = document.querySelector('#news')
-
-
+let searchHistoryElement = document.querySelector('#search-history');
 
 let countryContainerEl = document.getElementById("countryContainer")
 
 let dropdown = document.querySelector(".form-select");
 
 let search = JSON.parse(localStorage.getItem("search") || "[]");
-
-
-
 
 const generateData = (e, option) => {
     // e.preventDefault()
@@ -54,7 +49,7 @@ const generateData = (e, option) => {
 
         // Variables for main Information
         let capital = country[0].capital[0]
-        console.log(capital)
+        //console.log(capital)
         let continent = country[0].region;
         let currency = country[0].currencies;
         let languages = country[0].languages;
@@ -108,7 +103,7 @@ const generateData = (e, option) => {
     fetch(newsApi)
      .then(response => response.json())
      .then(function(news){
-      console.log("news-info",news)
+      //console.log("news-info",news)
 
       const arrays = news.articles
 
@@ -139,7 +134,7 @@ const generateData = (e, option) => {
          const googleSearch = () => {
 
            const altUrl = `https://news.google.com/search?q=${countryName}%20news&hl=en-GB&gl=GB&ceid=GB%3Aen`
-            console.log(altUrl)
+            //console.log(altUrl)
             const card = document.createElement('div')
             card.innerHTML =  `<div class="card news-card">
                                 <div class="card-body text-center">
@@ -167,27 +162,28 @@ const generateData = (e, option) => {
     });
 }
 
-
 mainElement.addEventListener('change', (e) => {
+  if(e.target.id === "country-dropdown") {
+    const option = e.target.value
+    generateData(e, option);
 
+    let countrySearch = e.target.value;
+    //console.log(countrySearch);
 
-    if(e.target.id === "country-dropdown") {
-      const option = e.target.value
-      generateData(e, option);
-
-      let countrySearch = e.target.value;
-      console.log(countrySearch);
-
-     function searchDuplicate(a, arr) {
-       return arr.includes(a);
-      }
-
-     if (!searchDuplicate(countrySearch, search)) {
-       search.push(countrySearch)
-       localStorage.setItem("search", JSON.stringify(search));
+    function searchDuplicate(a, arr) {
+      return arr.includes(a);
     }
 
+    if (!searchDuplicate(countrySearch, search)) {
+      search.push(countrySearch)
+      localStorage.setItem("search", JSON.stringify(search));
+      // create search history buttons
+      const historyBtn = document.createElement("button");
+      historyBtn.classList.add("btn", "btn-outline-info", "history-btn", "me-2", "mb-2");
+      historyBtn.textContent = countrySearch;
+      historyBtn.setAttribute('data-history', countrySearch);
+      searchHistoryElement.append(historyBtn);
+      console.log(`hello`);
     }
-
-  })
-
+  }
+})

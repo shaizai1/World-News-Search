@@ -12,7 +12,7 @@ let search = JSON.parse(localStorage.getItem("search") || "[]");
 
 
 const generateData = (e, option) => {
-    e.preventDefault()
+    // e.preventDefault()
     newsElement.innerHTML = ""
     let countryName = option
 

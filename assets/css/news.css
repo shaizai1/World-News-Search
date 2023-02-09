@@ -16,6 +16,7 @@
 .news-img {
     width: 100%;
     height: 40%;
+    object-fit: cover;
 }
 
 .card-header {
@@ -30,9 +31,13 @@
     color: red;
     padding: 4px;
     text-align: justify;
+    margin-bottom: 16px;
+    font-weight: bolder;
 }
 
 .btn {
     text-align: center;
+    margin-top: 16px;
+    margin-bottom: 4px;
 }
 

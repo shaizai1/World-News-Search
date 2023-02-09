@@ -1,5 +1,5 @@
 let dropdownElement = document.getElementById("country-dropdown");
-let apiKey = "00ea1dffc0088fb7759d793850ed8020"
+let apiKey = "997e474c448436e6041e48bdcfd868fe"
 
 
 let mainElement = document.querySelector('#main')
@@ -17,7 +17,7 @@ let search = JSON.parse(localStorage.getItem("search") || "[]");
 
 
 const generateData = (e, option) => {
-    e.preventDefault()
+    // e.preventDefault()
     newsElement.innerHTML = ""
     let countryName = option
 
@@ -42,6 +42,7 @@ const generateData = (e, option) => {
     fetch(queryURL)
     .then(response => response.json())
     .then(function(country){
+
         let flagURL = country[0].flags.svg;
         let flagAlt = country[0].flags.alt;
         document.getElementById("flags").setAttribute("src", flagURL);
@@ -110,12 +111,15 @@ const generateData = (e, option) => {
       console.log("news-info",news)
 
       const arrays = news.articles
-      console.log("arrays",arrays)
 
-        const newsResults =  arrays.map((item) => {
+      // creating a unique array in cases where arrays contains duplicate articles
+      const map = new Map(arrays.map(item => [item.title, item]));
+      const uniqueArray = [... map.values()]
+
+      // Generating bootstrap cards for the news articles
+        const newsResults =  uniqueArray.map((item) => {
           const newsHeading = item.title
           const newsUrl = item.url
-          // const description = item.description
           const content = item.content
           const image = item.image
           const card = document.createElement('div')
@@ -131,21 +135,23 @@ const generateData = (e, option) => {
           return card
         })
 
+        // function in case the news api returns an empty array
          const googleSearch = () => {
 
            const altUrl = `https://news.google.com/search?q=${countryName}%20news&hl=en-GB&gl=GB&ceid=GB%3Aen`
             console.log(altUrl)
             const card = document.createElement('div')
-            card.innerHTML =  `<div class="news-card">
-                                <h5 class="card-title"> Google News ${countryName} </h5>
-                                <a href=${altUrl} class="card-link" target="_blank">Click here for ${countryName} news</a>
-                                <p class="card-text">Google News from ${countryName}</p>
+            card.innerHTML =  `<div class="card news-card">
+                                <div class="card-body text-center">
+                                  <h5 class="card-title"> Google News ${countryName} </h5>
+                                  <p class="card-text">Google News from ${countryName}</p>
+                                  <a href=${altUrl} class="btn btn-secondary" target="_blank">Click here for ${countryName} news</a>
+                                </div>
                               </div>`
 
             return newsElement.append(card)
          }
 
-        console.log("results",newsResults)
 
         if (arrays.length !== 0) {
 
@@ -171,18 +177,16 @@ mainElement.addEventListener('change', (e) => {
 
       let countrySearch = e.target.value;
       console.log(countrySearch);
-      
-     
+
      function searchDuplicate(a, arr) {
        return arr.includes(a);
       }
-      
+
      if (!searchDuplicate(countrySearch, search)) {
        search.push(countrySearch)
        localStorage.setItem("search", JSON.stringify(search));
     }
-    
-  
+
     }
 
   })

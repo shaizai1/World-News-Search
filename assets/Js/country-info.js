@@ -1,43 +1,44 @@
 let dropdownElement = document.getElementById("country-dropdown");
-let apiKey = "997e474c448436e6041e48bdcfd868fe"
+let apiKey = "9714de926fe24b56dc457135e4e7ac7d"
 
 let mainElement = document.querySelector('#main')
 let newsElement = document.querySelector('#news')
-let searchHistoryElement = document.querySelector('#search-history');
+
 
 let countryContainerEl = document.getElementById("countryContainer")
 
-let dropdown = document.querySelector(".form-select");
-
-let search = JSON.parse(localStorage.getItem("search") || "[]");
 
 const generateData = (e, option) => {
-    // e.preventDefault()
+    e.preventDefault()
     newsElement.innerHTML = ""
     let countryName = option
 
     let queryURL = `https://restcountries.com/v3.1/name/${countryName}`
 
-    countryContainerEl.innerHTML = "";
     countryContainerEl.innerHTML = `
-      <div class="col-md-4 d-flex align-items-center justify-content-center">
-        <img id="flags" class="img border" src="">
-      </div>
-      <div id="countryInfoText" class="col-md-8 overflow-hidden">
-        <div id="countryTitleHeader" class="row text-center">
-          <h3 id="titleCountry"></h3>
+    <div class="row">
+    <div class="card mb-3 text-bg-light">
+        <div class="row g-0">
+            <div class="col-md-4 d-flex align-items-center justify-content-center">
+                <img id="flags" class="img border" src="">
+            </div>
+            <div id="countryInfoText" class="col-md-8 overflow-hidden">
+                <div id="countryTitleHeader" class="row text-center">
+                  <h3 id="titleCountry"></h3>
+                </div>
+                <div id="countryTextBox" class="card-body text-center">
+                  <ul id="textCountry"></ul>
+                  <button id="mapButton" type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#myModal">Click to view Map</button>
+                </div>
+            </div>
         </div>
-        <div id="countryTextBox" class="card-body text-center">
-          <ul id="textCountry"></ul>
-          <button id="mapButton" type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#myModal">Click to view Map</button>
-        </div>
-      </div>`
+    </div>
+</div>`
 
 
     fetch(queryURL)
     .then(response => response.json())
     .then(function(country){
-
         let flagURL = country[0].flags.svg;
         let flagAlt = country[0].flags.alt;
         document.getElementById("flags").setAttribute("src", flagURL);
@@ -49,7 +50,7 @@ const generateData = (e, option) => {
 
         // Variables for main Information
         let capital = country[0].capital[0]
-        //console.log(capital)
+        console.log(capital)
         let continent = country[0].region;
         let currency = country[0].currencies;
         let languages = country[0].languages;
@@ -103,18 +104,15 @@ const generateData = (e, option) => {
     fetch(newsApi)
      .then(response => response.json())
      .then(function(news){
-      //console.log("news-info",news)
+      console.log("news-info",news)
 
       const arrays = news.articles
+      console.log("arrays",arrays)
 
-      // creating a unique array in cases where arrays contains duplicate articles
-      const map = new Map(arrays.map(item => [item.title, item]));
-      const uniqueArray = [... map.values()]
-
-      // Generating bootstrap cards for the news articles
-        const newsResults =  uniqueArray.map((item) => {
+        const newsResults =  arrays.map((item) => {
           const newsHeading = item.title
           const newsUrl = item.url
+          // const description = item.description
           const content = item.content
           const image = item.image
           const card = document.createElement('div')
@@ -130,23 +128,21 @@ const generateData = (e, option) => {
           return card
         })
 
-        // function in case the news api returns an empty array
          const googleSearch = () => {
 
            const altUrl = `https://news.google.com/search?q=${countryName}%20news&hl=en-GB&gl=GB&ceid=GB%3Aen`
-            //console.log(altUrl)
+            console.log(altUrl)
             const card = document.createElement('div')
-            card.innerHTML =  `<div class="card news-card">
-                                <div class="card-body text-center">
-                                  <h5 class="card-title"> Google News ${countryName} </h5>
-                                  <p class="card-text">Google News from ${countryName}</p>
-                                  <a href=${altUrl} class="btn btn-secondary" target="_blank">Click here for ${countryName} news</a>
-                                </div>
+            card.innerHTML =  `<div class="news-card">
+                                <h5 class="card-title"> Google News ${countryName} </h5>
+                                <a href=${altUrl} class="card-link" target="_blank">Click here for ${countryName} news</a>
+                                <p class="card-text">Google News from ${countryName}</p>
                               </div>`
 
             return newsElement.append(card)
          }
 
+        console.log("results",newsResults)
 
         if (arrays.length !== 0) {
 
@@ -162,39 +158,16 @@ const generateData = (e, option) => {
     });
 }
 
+
 mainElement.addEventListener('change', (e) => {
-  if(e.target.id === "country-dropdown") {
-    const option = e.target.value
-    generateData(e, option);
 
-    let countrySearch = e.target.value;
-    //console.log(countrySearch);
 
-    function searchDuplicate(a, arr) {
-      return arr.includes(a);
+    if(e.target.id === "country-dropdown") {
+      const option = e.target.value
+      generateData(e, option)
     }
 
-    if (!searchDuplicate(countrySearch, search)) {
-      search.push(countrySearch)
-      localStorage.setItem("search", JSON.stringify(search));
-      // create search history buttons
-      const historyBtn = document.createElement("button");
-      historyBtn.classList.add("btn", "btn-outline-info", "history-btn", "me-2", "mb-2");
-      historyBtn.textContent = countrySearch;
-      historyBtn.setAttribute('data-history', countrySearch);
-      searchHistoryElement.append(historyBtn);
-    }
-  }
-});
+  })
 
-function displayHistory() {
-  search.map((country) => {
-      const historyBtn = document.createElement("button");
-      historyBtn.classList.add("btn", "btn-outline-info", "history-btn", "me-2", "mb-2");
-      historyBtn.textContent = country;
-      historyBtn.setAttribute('data-history', country);
-      searchHistoryElement.append(historyBtn);
-  });
-}
 
-displayHistory();
+

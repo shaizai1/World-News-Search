@@ -183,7 +183,18 @@ mainElement.addEventListener('change', (e) => {
       historyBtn.textContent = countrySearch;
       historyBtn.setAttribute('data-history', countrySearch);
       searchHistoryElement.append(historyBtn);
-      console.log(`hello`);
     }
   }
-})
+});
+
+function displayHistory() {
+  search.map((country) => {
+      const historyBtn = document.createElement("button");
+      historyBtn.classList.add("btn", "btn-outline-info", "history-btn", "me-2", "mb-2");
+      historyBtn.textContent = country;
+      historyBtn.setAttribute('data-history', country);
+      searchHistoryElement.append(historyBtn);
+  });
+}
+
+displayHistory();

@@ -2,7 +2,7 @@
 
 ## Overview
 
-This application is a news aggregator, allowing users to find various news about a country of their choice. This application will provide the user with various recent news articles about their selected country, accompanied with some information about that country, such as their flag, capital city, continent, currency, language spoken and a map.
+This application is a news aggregator, allowing users to find various news about a country of their choice. This application will provide the user with various recent news articles about their selected country, accompanied with some information about that country, such as their flag, capital city and more.
 This also saves the users previous searches and allows the user quick access to re-search for news about these countries.
 
 This application was created using:
@@ -19,7 +19,7 @@ This application runs with the use of two server-side APIs to retrieve various d
 * RESTcountries API
 * GNews API
 
-The application starts with a dropdown menu, allowing users to select their chosen country. This dropdown list includes a vast number of countries and allows users to type initial characters for their search for faster accessibility.
+The application starts with a dropdown menu, allowing users to select their chosen country. This dropdown list includes a vast number of countries and allows users to type initial characters of their search for faster accessibility.
 
 Following this, a section about the country selected is generated using the RESTcountries API. By gathering and displaying the data provided by this API we are able to show the capital city, continent, the currency (including abbreviation and symbol) and a list of the official national spoken languages. Also included is a button to access a google map of the country, using a bootstrap modal to provide a better experience.
 

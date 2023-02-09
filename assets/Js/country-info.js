@@ -197,4 +197,18 @@ function displayHistory() {
   });
 }
 
+searchHistoryElement.addEventListener('click', e => {
+  let searchTerm = e.target.getAttribute("data-history");
+  if (e.target.classList.contains('history-btn')) {
+    generateData(e, searchTerm);
+    console.log('ok');
+  }
+});
+
+// mainSection.addEventListener('click', e => {
+//   if (e.target.id === 'search-button') {
+//     citySearch(e, searchInput.value);
+//   }
+// });
+
 displayHistory();

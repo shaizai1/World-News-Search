@@ -24,17 +24,26 @@ The next section provides the various news articles generated from the GNews API
 
 At the bottom of the application, a search history is recorded. Allowing the user to see a record of their previous searches which are saved on their local storage, and provide fast access to re-search that country and generate news articles about it.
 
-#### Application Screenshot: - Full Screenshot before call
+### Application Screenshot:
+<img src="./assets/images/webpage.png" width="600">
 
-#### Application Screenshot: - Full Screenshot After call
+### Application Screenshot - After Search:
+<img src="./assets/images/search-screenshot.png" width="600">
 
-#### Nav and hero section
+### Nav Bar and Hero Section:
+<img src="./assets/images/nav-hero.png" width="600">
 
-#### Country info section
+### Country Information Section:
+<img src="./assets/images/country-info.png" width="600">
 
-#### news section
+### Modal for Map of Country:
+<img src="./assets/images/map.png" width="600">
 
-#### saved searches section
+### News Section:
+<img src="./assets/images/news-section.png" width="600">
+
+### Saved Search Section:
+<img src="./assets/images/search-history.png" width="600">
 
 ## Credits
 Use of RESTcountries API - https://restcountries.com/  
@@ -49,10 +58,10 @@ This project was built by:
 
 We worked together to produce this application by splitting the work between all of us and working together to merge our work into a single working application. To keep a clear idea of our work we created a wireframe for our application and a Kanban Board to track our work on GitHub.
 
-#### Application Wireframe:
+### Application Wireframe:
 <img src="./assets/images/wireframe.png" width="600">
 
-#### Kanban Board:
+### Kanban Board:
 <img src="./assets/images/kanban.png" width="600">
 
 

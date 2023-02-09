@@ -37,9 +37,11 @@ At the bottom of the application, a search history is recorded. Allowing the use
 #### Modal for Map of Country:
 <img src="./assets/images/map.png" width="600">
 
-#### news section
+#### News Section:
+<img src="./assets/images/news-section.png" width="600">
 
-#### saved searches section
+#### Saved Search Section:
+<img src="./assets/images/search-history.png" width="600">
 
 ## Credits
 Use of RESTcountries API - https://restcountries.com/  

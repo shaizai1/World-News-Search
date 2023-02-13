@@ -15,6 +15,9 @@ This application runs with the use of two server-side APIs to retrieve various d
 * RESTcountries API
 * GNews API
 
+## Deployed Application
+Link to deployed application: https://shaizai1.github.io/World-News-Search/ 
+
 ## Description
 This web application starts with a nav bar and hero section providing an explanation of the application. The nav bar allows users to have seamless transitions between the various sections within this webpage. In the hero section, a dropdown menu available to allow users to select their chosen country. This dropdown list includes a vast number of countries and allows users to type initial characters of their search for faster accessibility. 
 
@@ -64,6 +67,3 @@ We worked together to produce this application by splitting the work between all
 ### Kanban Board:
 <img src="./assets/images/kanban.png" width="600">
 
-
-## Deployed Application
-Link to deployed application: https://shaizai1.github.io/World-News-Search/ 

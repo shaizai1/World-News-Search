@@ -24,6 +24,9 @@ The next section provides the various news articles generated from the GNews API
 
 At the bottom of the application, a search history is recorded. Allowing the user to see a record of their previous searches which are saved on their local storage, and provide fast access to re-search that country and generate news articles about it.
 
+## Deployed Application
+Link to deployed application: https://shaizai1.github.io/World-News-Search/
+
 ### Application Screenshot:
 <img src="./assets/images/webpage.png" width="600">
 
@@ -46,8 +49,8 @@ At the bottom of the application, a search history is recorded. Allowing the use
 <img src="./assets/images/search-history.png" width="600">
 
 ## Credits
-Use of RESTcountries API - https://restcountries.com/  
-Use of GNews API - https://gnews.io/ 
+Use of RESTcountries API - https://restcountries.com/
+Use of GNews API - https://gnews.io/
 
 ## Collaborators
 This project was built by:
@@ -64,6 +67,3 @@ We worked together to produce this application by splitting the work between all
 ### Kanban Board:
 <img src="./assets/images/kanban.png" width="600">
 
-
-## Deployed Application
-Link to deployed application: https://shaizai1.github.io/World-News-Search/ 

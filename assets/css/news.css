@@ -10,7 +10,7 @@
     margin: 8px;
     height: 600px;
     width: 500px;
-    background-color: #ece4e5;
+    background-color: #ece4e5
 }
 
 .news-img {
@@ -19,20 +19,23 @@
     object-fit: cover;
 }
 
+
 .card-header {
     text-align: center;
     font-weight: bold;
     text-transform: uppercase;
+    background: #6c757d;
+    color: #fff;
+    border-radius: 8px !important;
 }
 
 .card-text {
     margin-top: 8px;
     height: 40%;
-    color: red;
-    padding: 4px;
+    color: #000;
+    padding: 8px;
     text-align: justify;
     margin-bottom: 16px;
-    font-weight: bolder;
 }
 
 .btn {

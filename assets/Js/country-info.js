@@ -12,7 +12,7 @@ let dropdown = document.querySelector(".form-select");
 let search = JSON.parse(localStorage.getItem("search") || "[]");
 
 const generateData = (e, option) => {
-    // e.preventDefault()
+
     newsElement.innerHTML = ""
     let countryName = option
 
@@ -54,7 +54,6 @@ const generateData = (e, option) => {
 
         // Variables for main Information
         let capital = country[0].capital[0]
-        //console.log(capital)
         let continent = country[0].region;
         let currency = country[0].currencies;
         let languages = country[0].languages;
@@ -76,8 +75,8 @@ const generateData = (e, option) => {
         }
 
         // Breakdown to access all languages
-        var trial = Object.keys(languages);
-        var languageList = [];
+        let trial = Object.keys(languages);
+        let languageList = [];
 
         for(i=0;i<trial.length;i++){
             let languageName = country[0].languages[trial[i]]
@@ -108,7 +107,6 @@ const generateData = (e, option) => {
     fetch(newsApi)
      .then(response => response.json())
      .then(function(news){
-      //console.log("news-info",news)
 
       const arrays = news.articles
 
@@ -123,14 +121,20 @@ const generateData = (e, option) => {
           const content = item.content
           const image = item.image
           const card = document.createElement('div')
-          card.innerHTML = `<div class="card news-card">
-                              <img src=${image} class="card-img-top news-img" alt=${newsHeading}>
-                              <div class="card-body text-center">
-                                <h5 class="card-title card-header">${newsHeading}</h5>
-                                <p class="card-text">${content}</p>
-                                <a href=${newsUrl} class="btn btn-secondary" target="_blank">Go deeper into the story</a>
-                              </div>
-                            </div>`
+          card.innerHTML = `<div class="container>
+                              <div class="row">
+                                <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                                  <div class="card news-card">
+                                    <img src=${image} class="card-img-top news-img" alt=${newsHeading}>
+                                    <div class="card-body text-center">
+                                      <h5 class="card-title card-header">${newsHeading}</h5>
+                                      <p class="card-text">${content}</p>
+                                      <a href=${newsUrl} class="btn btn-secondary" target="_blank">Dig deeper into the story</a>
+                                    </div>
+                                  </div>
+                                </div>
+                            </div>
+                          </div>`
 
           return card
         })
@@ -139,7 +143,7 @@ const generateData = (e, option) => {
          const googleSearch = () => {
 
            const altUrl = `https://news.google.com/search?q=${countryName}%20news&hl=en-GB&gl=GB&ceid=GB%3Aen`
-            //console.log(altUrl)
+
             const card = document.createElement('div')
             card.innerHTML =  `<div class="card news-card">
                                 <div class="card-body text-center">
@@ -173,7 +177,6 @@ mainElement.addEventListener('change', (e) => {
     generateData(e, option);
 
     let countrySearch = e.target.value;
-    //console.log(countrySearch);
 
     function searchDuplicate(a, arr) {
       return arr.includes(a);
@@ -206,14 +209,8 @@ searchHistoryElement.addEventListener('click', e => {
   let searchTerm = e.target.getAttribute("data-history");
   if (e.target.classList.contains('history-btn')) {
     generateData(e, searchTerm);
-    console.log('ok');
   }
 });
 
-// mainSection.addEventListener('click', e => {
-//   if (e.target.id === 'search-button') {
-//     citySearch(e, searchInput.value);
-//   }
-// });
 
 displayHistory();

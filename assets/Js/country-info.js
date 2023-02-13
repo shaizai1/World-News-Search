@@ -75,11 +75,11 @@ const generateData = (e, option) => {
         }
 
         // Breakdown to access all languages
-        let trial = Object.keys(languages);
+        let languageOfficial = Object.keys(languages);
         let languageList = [];
 
-        for(i=0;i<trial.length;i++){
-            let languageName = country[0].languages[trial[i]]
+        for(i=0;i<languageOfficial.length;i++){
+            let languageName = country[0].languages[languageOfficial[i]]
             languageList.push(languageName);
         }
 

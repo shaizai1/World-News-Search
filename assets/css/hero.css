@@ -34,3 +34,9 @@ nav{
     color: #6c757d;
 
 }
+/* 
+@media only screen and (max-width: 601px){
+    #country-dropdown{
+        width: 350px;
+    }
+} */

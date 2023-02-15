@@ -121,7 +121,7 @@ const generateData = (e, option) => {
           const content = item.content
           const image = item.image
           const card = document.createElement('div')
-          card.innerHTML = `<div class="container>
+          card.innerHTML = `<div class="container">
                               <div class="row">
                                 <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
                                   <div class="card news-card">

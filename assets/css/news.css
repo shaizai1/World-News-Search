@@ -44,3 +44,9 @@
     margin-bottom: 4px;
 }
 
+@media only screen and (max-width: 500px){
+    .news-card {
+        width: 90%;
+        height: fit-content;
+    }
+}
